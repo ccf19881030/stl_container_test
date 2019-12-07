@@ -61,6 +61,7 @@ CMakeCache.txt  CMakeFiles  cmake_install.cmake  Makefile  stl_container_test
 ```
 
 ## 三、运行可执行程序
+STL标准库主要分为两种类型的容器：顺序容器和关联容器,常见的顺序容器有array、vector、list、forward_list、deque、stack、queue，关联容器有map、set、unordered_map等，使用100万个元素进行测试，通过将放入100万元素到各种容器，排序输出所消耗的时间，来测试容器的性能。
 ### 1、测试array
 ```shell
 [root@localhost build]# ./stl_container_test 
@@ -158,4 +159,52 @@ target (0~2147483647): 23456
 found, 23456
 ::sort(), milli-seconds: 1680000
 [root@localhost build]# 
+```
+### 6、测试slist
+```shell
+[root@localhost src]# ./stl_container_test 
+select: 10
+how many elements:1000000
+
+test_slist()......... 
+milli-seconds:320000
+slist.size()= 1000000
+slist.front()= 20326
+target (0~2147483647): 23456
+::find(), mill-seconds: 0
+found, 23456
+c.sort(), milli-seconds: 1300000
+[root@localhost src]# 
+```
+
+### 7、测试stack
+```shell
+[root@localhost src]# ./stl_container_test 
+select: 17
+how many elements:1000000
+
+test_stack()......... 
+milli-seconds:250000
+stack.size()= 1000000
+stack.top()= 53045
+stack.size()= 999999
+stack.top()= 9409
+[root@localhost src]# 
+```
+
+### 8、测试queue
+```shell
+[root@localhost src]# ./stl_container_test 
+select: 18
+how many elements:1000000
+
+test_stack()......... 
+milli-seconds:260000
+queue.size()= 1000000
+queue.front()= 60351
+queue.back()= 41216
+queue.size()= 999999
+queue.front()= 65064
+queue.back()= 41216
+[root@localhost src]# 
 ```
