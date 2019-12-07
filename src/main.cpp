@@ -37,9 +37,6 @@ long totalCount;
     case 5:
 		jj05::test_deque(totalCount);
 	break;
-		case 6:
-		jj05::test_deque(totalCount);
-	break;
 #ifndef _WIN32
 	case 10:
 		jj10::test_slist(totalCount);
