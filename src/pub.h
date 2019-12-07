@@ -1,6 +1,10 @@
 #ifndef _PUB_H_
 #define _PUB_H_
 
+#ifdef _MSC_VER
+#define snprintf _snprintf  
+#endif
+
 #include <string>
 #include <cstdio>
 #include <iostream>
