@@ -1,6 +1,6 @@
 # stl_container_test
 《C++ STL与泛型编程高级-侯捷》视频中关于各种容器的测试代码
-## 项目对应的Bilibili视频的地址为：[C++ STL与泛型编程高级-侯捷](https://www.bilibili.com/video/av48068999)
+## 一、项目对应的Bilibili视频的地址为：[C++ STL与泛型编程高级-侯捷](https://www.bilibili.com/video/av48068999)
 P3~P5讲解了容器之分类与各种测试，本项目是对应的源代码，在Windows下使用VS2013以及在CentOS7.6下测试过，在Linux下可以直接使用make和cmake进行编译。
 ## git获取项目源代码
 git克隆源代码
@@ -8,7 +8,7 @@ git克隆源代码
 [root@localhost STLDemo_houjie_leasson]# git clone https://github.com/ccf19881030/stl_container_test.git
 ```
 
-## 在Linux下的编译测试如下：
+## 二、在Linux下的编译测试如下：
 ### 1、使用makefile编译生成可执行文件
 ```shell
 cd src
@@ -60,7 +60,7 @@ CMakeCache.txt  CMakeFiles  cmake_install.cmake  Makefile  stl_container_test
 [root@localhost build]# 
 ```
 
-## 运行可执行程序
+## 三、运行可执行程序
 ### 1、测试array
 ```shell
 [root@localhost build]# ./stl_container_test 
@@ -106,4 +106,56 @@ sort()+bsearch(), milli-seconds: 1350000
 found, 23456
 [root@localhost build]# 
 ```
+### 3、测试list
+```shell
+[root@localhost build]# ./stl_container_test 
+select: 3
+how many elements:1000000
 
+test_list()......... 
+milli-seconds:380000
+list.size()= 1000000
+list.max_size()= 768614336404564650
+list.front()= 52776
+list.back()= 15445
+target (0~2147483647): 23456
+::find(), mill-seconds: 10000
+found, 23456
+c.sort(), milli-seconds: 1730000
+[root@localhost build]# 
+```
+### 4、测试forward_list
+```shell
+[root@localhost build]# ./stl_container_test 
+select: 4
+how many elements:1000000
+
+test_forward_list()......... 
+milli-seconds:400000
+forward_list.max_size()= 1152921504606846975
+forward_list.front()= 58416
+target (0~2147483647): 23456
+::find(), mill-seconds: 10000
+found, 23456
+c.sort(), milli-seconds: 2360000
+[root@localhost build]# 
+```
+
+### 5、测试deque
+```shell
+[root@localhost build]# ./stl_container_test 
+select: 5
+how many elements:1000000
+
+test_deque()......... 
+milli-seconds:220000
+deque.size()= 1000000
+deque.max_size()= 2305843009213693951
+deque.front()= 39552
+deque.back()= 61479
+target (0~2147483647): 23456
+::find(), mill-seconds: 0
+found, 23456
+::sort(), milli-seconds: 1680000
+[root@localhost build]# 
+```
