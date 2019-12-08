@@ -5,6 +5,9 @@
 #include "test_deque.hpp"
 #include "test_stack.hpp"
 #include "test_queue.hpp"
+#include "test_multiset.hpp"
+#include "test_multimap.hpp"
+#include "test_unordered_multiset.hpp"
 
 #include "test_slist.hpp"
 
@@ -36,7 +39,16 @@ long totalCount;
 		break;
     case 5:
 		jj05::test_deque(totalCount);
-	break;
+		break;
+    case 6:
+		jj06::test_multiset(totalCount);
+		break;
+    case 7:
+		jj07::test_multimap(totalCount);
+		break;
+    case 8:
+		jj08::test_unordered_multiset(totalCount);
+		break;
 #ifndef _WIN32
 	case 10:
 		jj10::test_slist(totalCount);
