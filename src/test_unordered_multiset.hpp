@@ -51,7 +51,7 @@ namespace jj08
 		cout << "unordered_multiset.max_load_factor()= " << c.max_load_factor() << endl;
 		cout << "unordered_multiset.max_bucket_count()= " << c.max_bucket_count() << endl;
 
-		for (unsigned long i = 0; i < c.bucket_count(); ++i) {
+		for (unsigned long i = 0; i < 20; ++i) {
 			cout << "bucket #" << i << " has " << c.bucket_size(i) << " elements.\n";
 		}
 

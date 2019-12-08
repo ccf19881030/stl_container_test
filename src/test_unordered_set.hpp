@@ -44,8 +44,8 @@ namespace jj15
 		}
 
 		cout << "milli-seconds:" << (clock() - timeStart) << endl;
-		cout << "set.size()= " << c.size() << endl;
-		cout << "set.max_size()= " << c.max_size() << endl;
+		cout << "unordered_set.size()= " << c.size() << endl;
+		cout << "unordered_set.max_size()= " << c.max_size() << endl;
 
 	string target = get_a_target_string();
 		{
