@@ -1,7 +1,7 @@
-#ifndef _TEST_MULTISET_H
-#define _TEST_MULTISET_H
+#ifndef _TEST_UNORDERED_MULTIMAP_H
+#define _TEST_UNORDERED_MULTIMAP_H
 
-#include <set>
+#include <unordered_map>			// error #include<unordered_multimap>
 #include <stdexcept>
 #include <string>
 #include <iostream>
@@ -12,7 +12,7 @@
 
 #include "pub.h"
 
-using std::multiset;
+using std::unordered_multimap;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -20,21 +20,25 @@ using std::string;
 using std::exception;
 using std::find;
 using std::sort;
+using std::pair;
 
-namespace jj06
+namespace jj09
 {
-	void test_multiset(long& totalCount)
+	void test_unordered_multimap(long& totalCount)
 	{
-		cout << "\ntest_multiset()......... \n";
+		cout << "\ntest_unordered_multimap()......... \n";
 
-	std::multiset<string> c;
+	unordered_multimap<long, string> c;
 	char buf[10];
 	clock_t timeStart = clock();
 		for (long i = 0; i < totalCount; ++i)
 		{
 			try {
 				snprintf(buf, 10, "%d", rand() % 65535);
-				c.insert(string(buf));
+				// unordered_multimap 不可使用 [] 做insertion
+				c.insert(pair<long, string>(i, string(buf)));
+				//c.insert(std::make_pair(i, string(buf)));
+				//c.insert({ i, string(buf) });
 			}
 			catch (std::exception& e) {
 
@@ -44,28 +48,17 @@ namespace jj06
 		}
 
 		cout << "milli-seconds:" << (clock() - timeStart) << endl;
-		cout << "multiset.size()= " << c.size() << endl;
-		cout << "multiset.max_size()= " << c.max_size() << endl;
+		cout << "unordered_multimap.size()= " << c.size() << endl;
+		cout << "unordered_multimap.max_size()= " << c.max_size() << endl;
 
-	string target = get_a_target_string();
+		long target = get_a_target_long();
 		{
 			timeStart = clock();
-			auto pItem = ::find(c.begin(), c.end(), target);	// slower than c.find(...)
-			cout << "::find(), mill-seconds: " << (clock() - timeStart) << endl;
-
-			if (pItem != c.end())
-				cout << "found, " << *pItem << endl;
-			else
-				cout << "not found! " << endl;
-		}
-
-		{
-			timeStart = clock();
-			auto pItem = c.find(target);		// faster than ::find(...)
+			auto pItem = c.find(target);
 			cout << "c.find(), mill-seconds: " << (clock() - timeStart) << endl;
 
 			if (pItem != c.end())
-				cout << "found, " << *pItem << endl;
+				cout << "found, " << (*pItem).second << endl;
 			else
 				cout << "not found! " << endl;
 		}

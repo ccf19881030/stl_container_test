@@ -8,6 +8,11 @@
 #include "test_multiset.hpp"
 #include "test_multimap.hpp"
 #include "test_unordered_multiset.hpp"
+#include "test_unordered_multimap.hpp"
+#include "test_set.hpp"
+#include "test_map.hpp"
+#include "test_unordered_set.hpp"
+#include "test_unordered_map.hpp"
 
 #include "test_slist.hpp"
 
@@ -40,20 +45,35 @@ long totalCount;
     case 5:
 		jj05::test_deque(totalCount);
 		break;
-    case 6:
+	case 6:
 		jj06::test_multiset(totalCount);
 		break;
-    case 7:
+	case 7:
 		jj07::test_multimap(totalCount);
 		break;
-    case 8:
+	case 8:
 		jj08::test_unordered_multiset(totalCount);
+		break;
+	case 9:
+		jj09::test_unordered_multimap(totalCount);
 		break;
 #ifndef _WIN32
 	case 10:
 		jj10::test_slist(totalCount);
 		break;
 #endif
+	case 13:
+		jj13::test_set(totalCount);
+		break;
+	case 14:
+		jj14::test_map(totalCount);
+		break;
+	case 15:
+		jj15::test_unordered_set(totalCount);
+		break;
+	case 16:
+		jj16::test_unordered_map(totalCount);
+		break;
     case 17:
 		jj17::test_stack(totalCount);
 		break;
@@ -61,7 +81,6 @@ long totalCount;
 		jj18::test_queue(totalCount);
 		break;
     default:
-		jj02::test_vector(totalCount);
 		break;
     }
 

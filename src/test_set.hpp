@@ -1,5 +1,5 @@
-#ifndef _TEST_MULTISET_H
-#define _TEST_MULTISET_H
+#ifndef _TEST_SET_H
+#define _TEST_SET_H
 
 #include <set>
 #include <stdexcept>
@@ -12,7 +12,7 @@
 
 #include "pub.h"
 
-using std::multiset;
+using std::set;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -21,13 +21,13 @@ using std::exception;
 using std::find;
 using std::sort;
 
-namespace jj06
+namespace jj13
 {
-	void test_multiset(long& totalCount)
+	void test_set(long& totalCount)
 	{
-		cout << "\ntest_multiset()......... \n";
+		cout << "\ntest_set()......... \n";
 
-	std::multiset<string> c;
+	set<string> c;
 	char buf[10];
 	clock_t timeStart = clock();
 		for (long i = 0; i < totalCount; ++i)
@@ -44,13 +44,13 @@ namespace jj06
 		}
 
 		cout << "milli-seconds:" << (clock() - timeStart) << endl;
-		cout << "multiset.size()= " << c.size() << endl;
-		cout << "multiset.max_size()= " << c.max_size() << endl;
+		cout << "set.size()= " << c.size() << endl;
+		cout << "set.max_size()= " << c.max_size() << endl;
 
-	string target = get_a_target_string();
+		string target = get_a_target_string();
 		{
 			timeStart = clock();
-			auto pItem = ::find(c.begin(), c.end(), target);	// slower than c.find(...)
+			auto pItem = ::find(c.begin(), c.end(), target);	// 比c.find(...)慢很多
 			cout << "::find(), mill-seconds: " << (clock() - timeStart) << endl;
 
 			if (pItem != c.end())
@@ -61,7 +61,7 @@ namespace jj06
 
 		{
 			timeStart = clock();
-			auto pItem = c.find(target);		// faster than ::find(...)
+			auto pItem = c.find(target);		// 比::find(...)快很多
 			cout << "c.find(), mill-seconds: " << (clock() - timeStart) << endl;
 
 			if (pItem != c.end())
