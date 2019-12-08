@@ -61,7 +61,7 @@ CMakeCache.txt  CMakeFiles  cmake_install.cmake  Makefile  stl_container_test
 ```
 
 ## 三、运行可执行程序
-STL标准库主要分为两种类型的容器：顺序容器和关联容器,常见的顺序容器有array、vector、list、forward_list、deque、stack、queue，关联容器有map、set、unordered_map等，使用100万个元素进行测试，通过将放入100万元素到各种容器，排序输出所消耗的时间，来测试容器的性能。
+STL标准库主要分为两种类型的容器：顺序容器和关联容器,常见的顺序容器有array、vector、list、forward_list、deque、stack、queue，关联容器有map、set、unordered_map等，使用100万个元素进行测试，通过将放入100万元素到各种容器，排序、查找并输出所消耗的时间，来测试容器的性能。
 ### 1、测试array
 ```shell
 [root@localhost build]# ./stl_container_test 
