@@ -1,7 +1,7 @@
 # stl_container_test
 《C++ STL与泛型编程高级-侯捷》视频中关于各种容器的测试代码
 ## 一、项目对应的Bilibili视频的地址为：[C++ STL与泛型编程高级-侯捷](https://www.bilibili.com/video/av48068999)
-P3~P5讲解了容器之分类与各种测试，本项目是对应的源代码，在Windows下使用VS2013以及在CentOS7.6下测试过，在Linux下可以直接使用make和cmake进行编译。
+P3~P5讲解了容器之分类与各种测试，本项目是对应的源代码，在Windows下使用VS2013以及在CentOS7.6下使用g++编译器测试过，在Linux下可以直接使用make和cmake进行编译生成相应的可执行程序。
 ## git获取项目源代码
 git克隆源代码
 ```shell
@@ -160,7 +160,100 @@ found, 23456
 ::sort(), milli-seconds: 1680000
 [root@localhost build]# 
 ```
-### 6、测试slist
+
+### 6、测试multiset
+```shell
+[root@192 src]# ./stl_container_test 
+select: 6
+how many elements:1000000
+
+test_multiset()......... 
+milli-seconds:2690000
+multiset.size()= 1000000
+multiset.max_size()= 461168601842738790
+target (0~2147483647): 23456
+::find(), mill-seconds: 50000
+found, 23456
+c.find(), mill-seconds: 0
+found, 23456
+[root@192 src]# 
+```
+
+### 7、测试multimap
+```shell
+[root@192 src]# ./stl_container_test 
+select: 7
+how many elements:1000000
+
+test_multimap()......... 
+milli-seconds:890000
+multimap.size()= 1000000
+multimap.max_size()= 384307168202282325
+target (0~2147483647): 23456
+c.find(), mill-seconds: 0
+found, 65155
+[root@192 src]# 
+```
+
+### 8、测试unordered_multiset
+```shell
+[root@192 src]# ./stl_container_test 
+select: 8
+how many elements:1000000
+
+test_unordered_multiset()......... 
+milli-seconds:1210000
+unordered_multiset.size()= 1000000
+unordered_multiset.max_size()= 768614336404564650
+unordered_multiset.bucket_count()= 1056323
+unordered_multiset.load_factor()= 0.94668
+unordered_multiset.max_load_factor()= 1
+unordered_multiset.max_bucket_count()= 768614336404564650
+bucket #0 has 0 elements.
+bucket #1 has 0 elements.
+bucket #2 has 0 elements.
+bucket #3 has 0 elements.
+bucket #4 has 13 elements.
+bucket #5 has 0 elements.
+bucket #6 has 0 elements.
+bucket #7 has 0 elements.
+bucket #8 has 0 elements.
+bucket #9 has 9 elements.
+bucket #10 has 0 elements.
+bucket #11 has 0 elements.
+bucket #12 has 0 elements.
+bucket #13 has 0 elements.
+bucket #14 has 0 elements.
+bucket #15 has 0 elements.
+bucket #16 has 0 elements.
+bucket #17 has 0 elements.
+bucket #18 has 0 elements.
+bucket #19 has 0 elements.
+target (0~2147483647): 23456
+::find(), mill-seconds: 50000
+found, 23456
+c.find(), mill-seconds: 0
+found, 23456
+[root@192 src]# 
+```
+
+### 9、测试unordered_multimap
+```shell
+[root@192 src]# ./stl_container_test 
+select: 9
+how many elements:1000000
+
+test_unordered_multimap()......... 
+milli-seconds:540000
+unordered_multimap.size()= 1000000
+unordered_multimap.max_size()= 768614336404564650
+target (0~2147483647): 23456
+c.find(), mill-seconds: 0
+found, 52657
+[root@192 src]# 
+```
+
+### 10、测试slist
 ```shell
 [root@localhost src]# ./stl_container_test 
 select: 10
@@ -176,8 +269,75 @@ found, 23456
 c.sort(), milli-seconds: 1300000
 [root@localhost src]# 
 ```
+### 13、测试set
+```shell
+[root@192 src]# ./stl_container_test 
+select: 13
+how many elements:1000000
 
-### 7、测试stack
+test_set()......... 
+milli-seconds:1570000
+set.size()= 65535
+set.max_size()= 461168601842738790
+target (0~2147483647): 23456
+::find(), mill-seconds: 0
+found, 23456
+c.find(), mill-seconds: 0
+found, 23456
+[root@192 src]# 
+```
+
+### 14、测试map
+```shell
+[root@192 src]# ./stl_container_test 
+select: 14
+how many elements:1000000
+
+test_map()......... 
+milli-seconds:1180000
+map.size()= 1000000
+map.max_size()= 384307168202282325
+target (0~2147483647): 23456
+c.find(), mill-seconds: 0
+found, 5333
+[root@192 src]# 
+```
+
+### 15、测试unordered_set
+```shell
+[root@192 src]# ./stl_container_test 
+select: 15
+how many elements:1000000
+
+test_unordered_set()......... 
+milli-seconds:740000
+unordered_set.size()= 65535
+unordered_set.max_size()= 768614336404564650
+target (0~2147483647): 23456
+::find(), mill-seconds: 0
+found, 23456
+c.find(), mill-seconds: 0
+found, 23456
+[root@192 src]# 
+```
+
+### 16、测试unordered_map
+```shell
+[root@192 src]# ./stl_container_test 
+select: 16
+how many elements:1000000
+
+test_unordered_map()......... 
+milli-seconds:630000
+unordered_map.size()= 1000000
+unordered_map.max_size()= 768614336404564650
+target (0~2147483647): 23456
+c.find(), mill-seconds: 0
+found, 13602
+[root@192 src]# 
+```
+
+### 17、测试stack
 ```shell
 [root@localhost src]# ./stl_container_test 
 select: 17
@@ -192,7 +352,7 @@ stack.top()= 9409
 [root@localhost src]# 
 ```
 
-### 8、测试queue
+### 18、测试queue
 ```shell
 [root@localhost src]# ./stl_container_test 
 select: 18
